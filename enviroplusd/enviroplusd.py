@@ -7,6 +7,13 @@ class envplusd:
     def __init__(self) -> None:
         pass
 
+    def __initUserConfiguration__(self) -> None:
+        from fonts.ttf import RobotoMedium
+
+        importFont = RobotoMedium
+        fontSize = "20"
+        self.font = ImageFont.truetype(importFont, fontSize)
+
     def __initTemperatureSensor__(self) -> None:
 
         self.TEMPERATURE_SENSOR = bme280.BME280()
@@ -20,11 +27,17 @@ class envplusd:
         self.DISPLAY_HEIGHT = self.DISPLAY.HEIGHT
         self.DISPLAY_WIDTH = self.DISPLAY.WIDTH
 
-        initImg = Image.new(
+        displayImage = Image.new(
             mode="RGB",
             size=(self.DISPLAY_HEIGHT, self.DISPLAY_WIDTH),
             color=(33, 33, 33),
         )
-        plac1 = Image
-        plac2 = ImageDraw
-        plac3 = ImageFont
+        self.displayDraw = ImageDraw.Draw(displayImage)
+
+        initMsg = "initialising.."
+        self.displayDraw.text(
+            xy=(self.DISPLAY_HEIGHT / 2, self.DISPLAY_WIDTH / 2),
+            message=initMsg,
+            font=self.font,
+            fill=(255, 255, 255),
+        )

@@ -5,7 +5,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 class enviroplusd:
     def __init__(self) -> None:
-        pass
+        self.__initUserConfiguration__()
+        self.__initTemperatureSensor__()
+        self.__initDisplay__()
 
     def __initUserConfiguration__(self) -> None:
         from fonts.ttf import RobotoMedium

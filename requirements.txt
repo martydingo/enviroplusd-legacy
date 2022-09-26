@@ -1,1 +1,3 @@
-enviroplus
+bme280
+# ST7735
+pillow

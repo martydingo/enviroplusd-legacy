@@ -3,7 +3,7 @@ import ST7735
 from PIL import Image, ImageDraw, ImageFont
 
 
-class envplusd:
+class enviroplusd:
     def __init__(self) -> None:
         pass
 
@@ -41,3 +41,7 @@ class envplusd:
             font=self.font,
             fill=(255, 255, 255),
         )
+
+
+if __name__ == "__main__":
+    envplusd = enviroplusd()
